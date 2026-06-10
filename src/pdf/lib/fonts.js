@@ -33,3 +33,22 @@ const FONT_DEFINITIONS = {
 export function getFontDefinition( font ) {
 	return FONT_DEFINITIONS[ font ] || FONT_DEFINITIONS[ LATO ];
 }
+
+export const NOTO_SANS_CJK = 'NotoSansCJK';
+
+export function getCJKFontDefinition() {
+	const fontPath = `/fonts/${NOTO_SANS_CJK}/NotoSansSC`;
+	return {
+		family: NOTO_SANS_CJK,
+		fonts: [
+			{ src: `${fontPath}-Regular.ttf` },
+			{ src: `${fontPath}-Regular.ttf`, fontStyle: 'italic' },
+			{ src: `${fontPath}-Bold.ttf`, fontWeight: 700 },
+			{
+				src: `${fontPath}-Bold.ttf`,
+				fontStyle: 'italic',
+				fontWeight: 700,
+			},
+		],
+	};
+}

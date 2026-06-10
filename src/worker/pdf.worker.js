@@ -17,7 +17,7 @@ import PdfConfig, {
 	CONFIG_CURRENT_VERSION,
 	CONFIG_FILE,
 } from '~/pdf/config';
-import { getFontDefinition } from '~/pdf/lib/fonts';
+import { getCJKFontDefinition, getFontDefinition } from '~/pdf/lib/fonts';
 import RecalendarPdf from '~/pdf/recalendar';
 import '~/config/dayjs';
 
@@ -58,6 +58,7 @@ self.onmessage = ( { data } ) => {
 
 	Font.registerHyphenationCallback( hyphenationCallback );
 	Font.register( getFontDefinition( config.fontFamily ) );
+	Font.register( getCJKFontDefinition() );
 	Font.registerEmojiSource( {
 		format: 'png',
 		url: 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/72x72/',

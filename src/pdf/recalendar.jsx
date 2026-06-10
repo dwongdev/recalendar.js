@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import PdfConfig from '~/pdf/config';
+import { NOTO_SANS_CJK } from '~/pdf/lib/fonts';
 import DayPage from '~/pdf/pages/day';
 import LastPage from '~/pdf/pages/last';
 import MonthOverviewPage from '~/pdf/pages/month-overview';
@@ -14,7 +15,7 @@ import YearOverviewPage from '~/pdf/pages/year-overview';
 class RecalendarPdf extends React.Component {
 	styles = StyleSheet.create( {
 		document: {
-			fontFamily: this.props.config.fontFamily,
+			fontFamily: [ this.props.config.fontFamily, NOTO_SANS_CJK ],
 		},
 		page: {
 			flexDirection: 'row',
